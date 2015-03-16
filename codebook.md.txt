@@ -1,6 +1,15 @@
 Human Activity Recognition Using Smartphones Data Set 
-This sample is based on experimental measurements made on 30 volunteers performing six activities  (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II). More information on this dataset can be found at the following link : http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-Raw data: was obtained from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip . The . The following is a brief summary of  each of the datafiles.full description of the dataset is provided in the Readme.txt.
+This sample is based on experimental measurements made on 30 volunteers performing six activities  (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) 
+wearing a smartphone (Samsung Galaxy S II). More information on this dataset can be found at the following link : http://archive.ics.uci.edu/ml/datasets/Human+Activity
++Recognition+Using+Smartphones. The code provided reads in the raw data and outputs a tidy dataset by performing the following transformations on the raw data:  merges the 
+training and the test sets to create one data set and extracts only the measurements on the mean and standard deviation for each measurement labels the data set with 
+descriptive variable names and creates a tidy dataset.
+
+
+
+Raw data: was obtained from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip . The . The following is a brief summary of  each of the 
+
+datafiles.full description of the dataset is provided in the Readme.txt.
 - 'features_info.txt': Shows information about the variables used on the feature vector.
 - 'features.txt': List of all features.
 - 'activity_labels.txt': Links the class labels with their activity name.
@@ -10,14 +19,25 @@ Raw data: was obtained from https://d396qusza40orc.cloudfront.net/getdata%2Fproj
 - 'test/y_test.txt': Test labels.
 The following files are available for the train and test data. Their descriptions are equivalent. 
 - 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
-- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element 
+
+vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
 - 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.  
 
-Processed data (tidydata.txt): First the features are read from the "features.txt" and cleaned of special characters. The "-" and "()" are replaced with "_" and "" respectively (to prevent errors in R).
-Next the X,Y and subject data are read in, the mean and std. deviation column names are identified. The observations are subsetted to the mean and std. deviation columns (the final processing will focus on these columns only).
+Processed data (tidydata.txt): First the features are read from the "features.txt" and cleaned of special characters. The "-" and "()" are replaced with "_" and "" 
+
+respectively (to prevent errors in R).
+Next the X,Y and subject data are read in, the mean and std. deviation column names are identified. The observations are subsetted to the mean and std. deviation columns (the 
+
+final processing will focus on these columns only).
 The training and test data(X,Y and subject) are now merged into one dataset.
-"SubjectID" and "Activity" (for the "Y" and "Subject"  columns )are added to the column listand this list is applied to the merged dataset in previous dataset to provide column names to the dataset.
+A "_mean_value" string is appended to each of the observation column names to signify these will contain the mean values (this mean is computed in the last step below)
+"SubjectID" and "Activity" (for the "Y" and "Subject"  columns )are added to the column listand this list is applied to the merged dataset in previous dataset to provide 
+
+column names to the dataset.
 The Activity ID's in the Activity column (which are numbers ranging 1:6 ) are replaced by their descriptive names provided in the "activity_labels.txt".
 
-Finally the dataset is grouped by SubjectID first and then Activity. The mean operation is applied to these groups to all measurement columns. This output tidy dataset is saved to file.
+Finally the dataset is grouped by SubjectID first and then Activity. The mean operation is applied to these groups to all measurement columns. This output tidy dataset is 
+
+saved to file.

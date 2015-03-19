@@ -9,7 +9,7 @@ descriptive variable names and creates a tidy dataset.
 
 Raw data: was obtained from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip . The . The following is a brief summary of  each of the 
 
-datafiles.full description of the dataset is provided in the Readme.txt.
+datafiles.full description of the dataset is provided in the Readme.txt (contained in the above zip).
 - 'features_info.txt': Shows information about the variables used on the feature vector.
 - 'features.txt': List of all features.
 - 'activity_labels.txt': Links the class labels with their activity name.
